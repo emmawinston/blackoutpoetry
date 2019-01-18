@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Blackout Poetry Maker</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Libre+Baskerville|Special+Elite" rel="stylesheet">
+  </head>  
+  <body>
+    <h2 class="collapsiblemobile">☰</h2>
+    <div class="left contentmobile">
+      
+    <h1 class="title">Blackout Poetry Maker</h1>
+    
+    <h2 class="collapsible">How does this work?</h2>
+    <div class="content">
+      <p><a href="https://www.scholastic.com/teachers/blog-posts/john-depasquale/blackout-poetry/">Blackout poetry</a> is made by colouring over parts of an existing text, so that only selected words remain visible, creating a poem.</p>
+      <p>To use this tool, you can select a text from the samples, or paste your own text source into the custom text field. Your chosen text will appear in the large box to the right.</p>
+      <p>With your mouse or touchscreen, select the words from the text you want to keep, and, when you are ready, press the <b>black out</b> button.</p>
+      <p>If you want to save the result as an image, maybe to post to your social network of choice, scroll down and hit <b>Render as image</b>. You can then save the image directly to your device.</p>
+    </div>
+      
+    <div id="samples">
+      <h2>Sample texts</h2>
+      <a href="#" id="alice" class="sample">Alice in Wonderland</a>
+      <a href="#" id="pride" class="sample">Pride and Prejudice</a>
+      <a href="#" id="heart" class="sample">Heart of Darkness</a>
+     </div>  
+    
+      <h2>Custom text</h2>
+      <div class="upload">
+        <form class="upload" onsubmit="return false;">
+          <textarea class="textarea" id="userInput" placeholder="Enter your custom text here"></textarea>
+          <button type="submit" id="submitbutton" onclick="userinput()">Enter text</button>
+        </form>
+      </div>
+      
+      <h2>Customise appearance</h2>
+        <h3 class="collapsible">Font</h3>
+        <ul class="content">
+          <li><span id="special" class="pointer">Special Elite</span></li>
+          <li><span id="baskerville" class="pointer">Baskerville</span></li>
+          <li><span id="lato" class="pointer">Lato</span></li>
+          <li><span id="times" class="pointer">Times</span></li>
+          <li><span id="monospace" class="pointer">Monospace</span></li>
+        </ul>
+      
+        <h3>Text size <span id="smaller" class="pointer">➖</span> <span id="bigger" class="pointer">➕</span></h3>  
+    </div>
+    
+    <div class="right">
+      <div id="border">
+        <div id="wrapper">
+          <div id="container">
+            <div id="text">
+            </div>
+          </div>
+        </div> 
+      </div>
+    
+      <div id="buttons">
+        <button id="commit">black out.</button>
+        <button id="reset">reset</button>
+      </div>
+    
+      <div id="image">
+        <p class="info">Your image will appear here when you're done.</p>
+      </div>
+    </div>
+    
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+    
+    
+    <script src="/html2canvas.min.js" type="text/javascript"></script>
+  </body>
+</html>

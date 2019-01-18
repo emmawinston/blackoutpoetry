@@ -1,0 +1,388 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+  background-color: #eee;
+  margin: 0;
+  display: flex;
+}
+
+
+/* VARIOUS CONTAINER BOX STYLING */
+.left {
+  padding: 2em;
+  width: 300px;
+  padding-right: 40px;
+  background-color: #ddd;
+  height: 90vh;
+  overflow: auto;
+}
+
+.right {
+  padding: 2em;
+  height: 90vh;
+  overflow: auto;
+  flex-grow: 2;
+}
+
+#border {
+  border: 10px solid #000;
+  margin: 0 auto;
+  width: 60%;
+  position: relative;
+  background-color: #fff;
+}
+
+#wrapper {
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 40px solid #fff;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+#container {
+  width: 100%;
+  margin: 0px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+#text {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  align-content: flex-start;
+  justify-content: flex-start;
+  font-family: 'Special Elite', monospace;
+  font-size: 24px;
+}
+
+/* WORD STYLING */
+.word {
+  flex-grow: 1;
+  padding: 2px;
+  line-height: 1em;
+  border: 1px solid #fff;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.poemword {
+  border: 1px solid #000;
+}
+
+.word.blackout {
+  background-color: #000;
+  border: 1px solid #000;
+}
+
+.word.committed.blackout, .word.committed {
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+.blackground, #container.blackground {
+  background-color: #000;
+}
+
+
+/* IMAGE BOX STYLING */
+#image {
+  width: 800px;
+  min-height: 200px;
+  background-color: #ddd;
+  margin: 40px auto;
+  text-align: center;
+  display: block;
+}
+
+#image p {
+  padding-top: 40px;
+  display: block;
+}
+
+#image p.info {
+  padding-top: 90px;
+}
+
+#previewImage img {
+  max-width: 95%;
+}
+
+/* BUTTONS AND TEXTBOXES */
+#buttons {
+  text-align: center;
+}
+
+button {
+  margin: 20px 5px;
+  display: inline-block;
+  width: 200px;
+  height: 60px;
+  border: 10px solid black;
+  font-size: 1.4em;
+}
+
+button#commit {
+  background-color: #222;
+  color: #fff;
+}
+
+#image button {
+  margin-bottom: 60px;
+}
+
+.upload button {
+  margin-top: 10px;
+  display: block;
+}
+
+textarea {
+  display: block;
+  height: 300px;
+  margin: 20px 0;
+  border: 10px solid #000;
+  font-size: 1em;
+  width: 90%;
+}
+
+/* TEXT STYLING */
+.collapsible {
+  cursor: pointer;
+  background-color: #000;
+  padding: 4px;
+  color: #fff;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+ul li {
+  padding-top: 10px;
+}
+
+ul li:last-child {
+  padding-bottom: 20px;
+}
+
+.content {
+  overflow: hidden;
+  background-color: #ccc;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+  margin-top: 0;
+}
+
+.pointer {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#bigger, #smaller {
+  display: inline-block;
+padding-top: 2px;
+}
+
+.collapsible:after {
+  content: '+';
+  float: right;
+  margin-left: 5px;
+  margin-top: -1px;
+}
+
+.collapsible.active:after {
+  content: "-"; 
+}
+
+#text.special {
+  font-family: 'Special Elite', monospace;
+}
+
+#text.baskerville {
+  font-family: 'Libre Baskerville', serif;
+}
+
+#text.libre {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.collapsiblemobile {
+display: none;
+}
+
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+  margin-top: 0;
+}
+
+h1.mobiletitle {
+  display: none;
+}
+
+h2 {
+  margin-top: 40px; 
+}
+
+a {
+  color: #444444;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a.sample {
+  display: block;
+}
+
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1300px) {
+  #border {
+    width: 80%;
+  }
+  
+  #image {
+    width: 80%;
+  }
+}
+
+
+@media screen and (max-width: 960px) {
+  body {
+    display: block;
+  }
+  
+  .left, .right {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 40px;
+  }
+  
+  .right {
+    padding-top: 100px; 
+  }
+  
+  .menuwrapper {
+    top: 0;
+    z-index: 10;
+  }
+  
+  .collapsiblemobile {
+    display: block;
+    margin: 0;
+    padding: 20px;
+    background-color: #ccc;
+    text-align: right;
+  }
+  
+  .contentmobile {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    margin-top: 0;
+    box-sizing: border-box;
+}
+  
+  .contentmobile h2 {
+    margin-top: 40px;
+  }
+  
+  h1.title {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 16px;
+    margin-left: 20px;
+    z-index: 10;
+  }
+  
+  #border, #image {
+    width: 70%;
+  }
+  
+}
+
+
+@media screen and (max-width: 800px) {
+  .left, .right {
+  padding: 0 20px;
+  }
+  
+  .right {
+    padding-top: 100px;
+  }
+  
+  #border, #image {
+    width: 80%;
+  }
+}
+
+
+@media screen and (max-width: 670px) {
+  #border, #image {
+    width: 90%;
+  }
+
+}
+
+
+@media screen and (max-width: 560px) {
+  .left, .right {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  h1.title {
+    font-size: 1.4em;
+    margin-top: 24px;
+  }
+  
+  h2.collapsiblemobile {
+    font-size: 1.5em;
+    margin-top: 3px;
+  }
+
+  #wrapper {
+    border: 20px solid #fff;
+  }
+  
+  #text {
+    font-size: 16px;
+  }
+  
+  button {
+   font-size: 1em;
+  }
+
+}
+
+
+@media screen and (max-width: 390px) {
+  #wrapper {
+    border: 20px solid #fff;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  h1.title, h2.collapsiblemobile {
+    font-size: 1em;
+  }
+  
+}
+
+.glitchButton .glitchButtonElement {
+  width: auto;
+}
