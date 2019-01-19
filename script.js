@@ -1,6 +1,6 @@
 let text = "";
 // check the size of the box
-getSquare()
+getSquare();
 // load Alice as our sample text
 alice();
 
@@ -100,7 +100,7 @@ function sortText() {
   // Add the buttons to convert to image
   document.getElementById("image").innerHTML = "<p>If you're happy, click the button below to turn your text into an image.</p><button id='renderImage'>Render as image</button><div id='previewImage'></div><div id='downloadImage'></div>";
   
-  // Turn the text into a canvas using html2canvas (our only jQuery plugin)
+  // Turn the text into a canvas using html2canvas (our only jQuery)
   var getCanvas;
   $("#renderImage").on('click', function () {
     html2canvas($('#container').get(0)).then( function (canvas) {
@@ -152,54 +152,51 @@ function clearall() {
 
 // COLLAPSIBLE PANELS
 var coll = document.getElementsByClassName("collapsible");
-
-for (var i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
-}
-
 var collmob = document.getElementsByClassName("collapsiblemobile");
 
-for (var i = 0; i < collmob.length; i++) {
-  collmob[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
+function collapse(panel) {
+  for (var i = 0; i < panel.length; i++) {
+    panel[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } 
+    });
+  }
 }
+
+collapse(coll);
+collapse(collmob);
 
 
 // TEXT APPEARANCE
 document.getElementById("special").addEventListener('click', function() {
-  document.getElementById("text").style.fontFamily = "Special Elite";
+  fontFamily("Special Elite");
 });
 
 document.getElementById("baskerville").addEventListener('click', function() {
-  document.getElementById("text").style.fontFamily = "Libre Baskerville";
+  fontFamily("Libre Baskerville");
 });
 
 document.getElementById("lato").addEventListener('click', function() {
-  document.getElementById("text").style.fontFamily = "Lato";
+  fontFamily("Lato");
 });
 
 document.getElementById("times").addEventListener('click', function() {
-  document.getElementById("text").style.fontFamily = "Times";
+  fontFamily("Times");
 });
 
 document.getElementById("monospace").addEventListener('click', function() {
-  document.getElementById("text").style.fontFamily = "monospace";
+  fontFamily("monospace");
 });
+
+
+function fontFamily(typeface) {
+  document.getElementById("text").style.fontFamily = typeface;
+}
 
 // FONT SIZE
 var words = document.getElementById('text');
@@ -218,9 +215,12 @@ document.getElementById("bigger").addEventListener('click', function() {
 
 // Make the box always be perfectly square based on percentage
 function getSquare() {
-  let square = document.getElementById('border').offsetWidth;
-  document.getElementById('border').style.height = square + "px";
-  document.getElementById('wrapper').style.height = square + "px";
+  let border = document.getElementById('border').offsetWidth;
+  let wrapper = document.getElementById('wrapper').offsetWidth;
+  let container = document.getElementById('container').offsetWidth;
+  document.getElementById('border').style.height = wrapper + "px";
+  document.getElementById('wrapper').style.height = wrapper + "px";
+  document.getElementById('container').style.height = container + "px";
 }
 
 // run the above function every time the window is resized
@@ -229,4 +229,3 @@ window.addEventListener('resize', function(event){
 });
 
 // To do: 
-// write a function to avoid repetition when changing font family? Is this possible?
