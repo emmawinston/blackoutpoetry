@@ -1,6 +1,7 @@
 let text = "";
 // check the size of the box
 getSquare();
+
 // load Alice as our sample text
 alice();
 
@@ -134,28 +135,35 @@ function clearselection() {
 // RESET BUTTON
 function clearall() {
   for (var i=0; i < word.length; i++) {
-  
+  // remove the selected words
     if (word[i].classList.contains('committed')) {
       word[i].classList.remove('committed');
+    // remove the blackout effect
     } else if (word[i].classList.contains('blackout')) {
       word[i].classList.remove("blackout");
     }
   }
+    // remove the black background from the container boxes
     document.getElementById("text").classList.remove("blackground");
     document.getElementById("container").classList.remove("blackground");
+    // return the image container to its original state
     document.getElementById("image").innerHTML = "<p class='info'>Your image will appear here when you're done.</p>";
+    // turn the reset button back into a button which just clears the selected words
     document.getElementById("reset").removeEventListener('click', clearall, false);
     document.getElementById("reset").addEventListener('click', clearselection, false);
   }
 }
 
 // COLLAPSIBLE PANELS
+// coll is the collapsible panels for info and typeface, collmob is the mobile menu
 var coll = document.getElementsByClassName("collapsible");
 var collmob = document.getElementsByClassName("collapsiblemobile");
 
 function collapse(panel) {
   for (var i = 0; i < panel.length; i++) {
+    // when a collapsible element is clicked...
     panel[i].addEventListener("click", function() {
+      // ...add the CSS class 'active' to it
       this.classList.toggle("active");
       var content = this.nextElementSibling;
       if (content.style.maxHeight){
@@ -167,11 +175,18 @@ function collapse(panel) {
   }
 }
 
+// call the above functions for both types of collapsible panel 
 collapse(coll);
 collapse(collmob);
 
 
 // TEXT APPEARANCE
+// when one of the typeface names is clicked change the font to that typeface
+function fontFamily(typeface) {
+  document.getElementById("text").style.fontFamily = typeface;
+}
+
+// when you click one of the typeface names it runs the above function
 document.getElementById("special").addEventListener('click', function() {
   fontFamily("Special Elite");
 });
@@ -192,27 +207,24 @@ document.getElementById("monospace").addEventListener('click', function() {
   fontFamily("monospace");
 });
 
-
-function fontFamily(typeface) {
-  document.getElementById("text").style.fontFamily = typeface;
-}
-
 // FONT SIZE
-var words = document.getElementById('text');
+let words = document.getElementById('text');
 
+// make text smaller when minus button clicked
 document.getElementById("smaller").addEventListener('click', function() {
-  var style = window.getComputedStyle(words , null).getPropertyValue('font-size');
-  var fontSize = parseFloat(style); 
+  let style = window.getComputedStyle(words , null).getPropertyValue('font-size');
+  let fontSize = parseFloat(style); 
   words.style.fontSize = (fontSize - 2) + 'px';
 });
 
+// make text bigger when plus button clicked
 document.getElementById("bigger").addEventListener('click', function() {
-  var style = window.getComputedStyle(words , null).getPropertyValue('font-size');
-  var fontSize = parseFloat(style); 
+  let style = window.getComputedStyle(words , null).getPropertyValue('font-size');
+  let fontSize = parseFloat(style); 
   words.style.fontSize = (fontSize + 2) + 'px';
 });
 
-// Make the box always be perfectly square based on percentage
+// Make the boxes always be perfectly square based on percentage
 function getSquare() {
   let border = document.getElementById('border').offsetWidth;
   let wrapper = document.getElementById('wrapper').offsetWidth;
