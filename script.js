@@ -99,11 +99,10 @@ function sortText() {
 
   // Add the buttons to convert to image
   document.getElementById("image").innerHTML = "<p>If you're happy, click the button below to turn your text into an image.</p><button id='renderImage'>Render as image</button><div id='previewImage'></div><div id='downloadImage'></div>";
-  
-  // Turn the text into a canvas using html2canvas (our only jQuery)
-  var getCanvas;
-  $("#renderImage").on('click', function () {
-    html2canvas($('#container').get(0)).then( function (canvas) {
+    
+let getCanvas;
+  document.getElementById("renderImage").addEventListener('click', function() {
+    html2canvas(document.getElementById("picframe")).then( function (canvas) {
       getCanvas = canvas;
       
       // generate an image element
@@ -115,7 +114,7 @@ function sortText() {
       // now append the image to the previewImage div
       document.getElementById("previewImage").appendChild(imageData);
     });
-  });  
+  });
 }
 
 
@@ -220,6 +219,7 @@ function getSquare() {
   let container = document.getElementById('container').offsetWidth;
   document.getElementById('border').style.height = wrapper + "px";
   document.getElementById('wrapper').style.height = wrapper + "px";
+  document.getElementById('picframe').style.height = container + "px";
   document.getElementById('container').style.height = container + "px";
 }
 
@@ -228,4 +228,4 @@ window.addEventListener('resize', function(event){
   getSquare();
 });
 
-// To do: 
+// To do:

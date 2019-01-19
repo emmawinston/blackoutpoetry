@@ -5,6 +5,13 @@ body {
   display: flex;
 }
 
+.glitchButton .glitchButtonElement {
+  width: auto;
+}
+
+.glitchButton {
+  top: 0px !important;
+}
 
 /* VARIOUS CONTAINER BOX STYLING */
 .left {
@@ -31,15 +38,18 @@ body {
   background-color: #fff;
 }
 
-#wrapper {
+#wrapper, #picframe {
   width: 100%;
   margin: 0;
   position: absolute;
   left: 0;
   top: 0;
-  border: 40px solid #fff;
   box-sizing: border-box;
   overflow: auto;
+}
+
+#wrapper {
+  border: 40px solid #fff;
 }
 
 #container {
@@ -110,6 +120,7 @@ body {
 
 #previewImage img {
   max-width: 95%;
+  padding-bottom: 40px;
 }
 
 /* BUTTONS AND TEXTBOXES */
@@ -312,9 +323,10 @@ a.sample {
   }
   
   .glitchButton {
-  right: 60px !important;
+  top: -10px !important;
+  right: 45px !important;
   }
-    
+  
 }
 
 
@@ -368,27 +380,10 @@ a.sample {
   button {
    font-size: 1em;
   }
-
-}
-
-
-@media screen and (max-width: 390px) {
-  #wrapper {
-    border: 20px solid #fff;
-  }
 }
 
 @media screen and (max-width: 300px) {
   h1.title, h2.collapsiblemobile {
     font-size: 1em;
-  }
-  
-}
-
-.glitchButton .glitchButtonElement {
-  width: auto;
-}
-
-.glitchButton {
-  top: -10px !important;
+  } 
 }
