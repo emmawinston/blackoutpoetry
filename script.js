@@ -92,6 +92,7 @@ function sortText() {
   // add a CSS class to containers to make absolutely sure the background is black
   document.getElementById("text").classList.add("blackground");
   document.getElementById("container").classList.add("blackground");
+  document.getElementById("picframe").classList.add("blackground");
   
   // remove the button that deselects words
   document.getElementById("reset").removeEventListener('click', clearselection, false);
@@ -150,6 +151,7 @@ function clearall() {
     // remove the black background from the container boxes
     document.getElementById("text").classList.remove("blackground");
     document.getElementById("container").classList.remove("blackground");
+    document.getElementById("picframe").classList.remove("blackground");
     // return the image container to its original state
     document.getElementById("image").innerHTML = "<p class='info'>Your image will appear here when you're done.</p>";
     // turn the reset button back into a button which just clears the selected words
