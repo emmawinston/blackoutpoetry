@@ -99,24 +99,28 @@ function sortText() {
   document.getElementById("reset").addEventListener('click', clearall, false);
 
   // Add the buttons to convert to image
-  document.getElementById("image").innerHTML = "<p>If you're happy, click the button below to turn your text into an image.</p><button id='renderImage'>Render as image</button><div id='previewImage'></div><div id='downloadImage'></div>";
-    
-let getCanvas;
-  document.getElementById("renderImage").addEventListener('click', function() {
-    html2canvas(document.getElementById("picframe")).then( function (canvas) {
-      getCanvas = canvas;
+  document.getElementById("image").innerHTML = "<p>If you're happy, click the button below to turn your text into an image.</p><button id='renderImage'>Render square</button><button id='renderFullImage'>Render full text</button><div id='previewImage'></div><div id='downloadImage'></div>";
+  
+  document.getElementById("renderImage").addEventListener('click', function(){snapshot("picframe")}, false);
+  document.getElementById("renderFullImage").addEventListener('click', function(){snapshot("text")}, false);
+  
+}
+  
+  
+function snapshot(element) {
+    html2canvas(document.getElementById(element)).then(function(canvas) {
+    let getFullCanvas = canvas;
       
       // generate an image element
       var imageData = document.createElement('img');
       
       // get the data from the canvas and apply it to the image
-      imageData.src = getCanvas.toDataURL("image/png");
+      imageData.src = getFullCanvas.toDataURL("image/png");
       
       // now append the image to the previewImage div
       document.getElementById("previewImage").appendChild(imageData);
-    });
-  });
-}
+    }); 
+  }
 
 
 // CLEAR SELECTIONS

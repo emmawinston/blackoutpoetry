@@ -72,7 +72,7 @@ body {
 
 /* WORD STYLING */
 .word {
-  flex-grow: 1;
+  flex-grow: 0.1;
   padding: 2px;
   line-height: 1em;
   border: 1px solid #fff;
