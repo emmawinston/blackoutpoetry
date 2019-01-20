@@ -70,6 +70,12 @@ body {
   font-size: 24px;
 }
 
+.footer {
+  text-align: center;
+  padding-top: 40px;
+  font-size: 0.8em;
+}
+
 /* WORD STYLING */
 .word {
   flex-grow: 0.1;
